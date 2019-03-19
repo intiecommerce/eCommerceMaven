@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<title></title>
+</h:head>
+<h:body>
+
+<h:form>
+		Catégorie: <p:selectOneMenu value="#{proMB.produit.categorie.idCategorie}">
+	
+					<f:selectItems value="#{sessionScope.catSession}" var="cat" itemLabel="#{cat.nomCategorie}" itemValue="#{cat.idCategorie}"/>
+
+			</p:selectOneMenu>
+			<h:commandButton value="Selectionner la catégorie" action="#{proMB.chercherProduitParCategorie}" />
+</h:form>
+
+
+<h:form rendered="#{proMB.listeVisible}">
+		<h1 style="color: red; text-align: center">Liste des produits</h1>
+		<p:dataTable var="pro" value="#{sessionScope.proSession}" id="Tab">
+			<p:column headerText="ID du produit">
+				<h:outputText value="#{pro.idProduit}" />
+			</p:column>
+
+			<p:column headerText="Designation du produit">
+				<h:outputText value="#{pro.designation}" />
+			</p:column>
+
+			<p:column headerText="Description">
+				<h:outputText value="#{pro.description}" />
+			</p:column>
+
+			<p:column headerText="Prix">
+				<h:outputText value="#{pro.prix}" />
+			</p:column>
+
+			<p:column headerText="Quantité">
+				<h:outputText value="#{pro.quantite}" />
+			</p:column>
+			
+			<p:column headerText="Photo du produit">
+				<h:graphicImage value="#{pro.image}" />
+			</p:column>
+			
+		<p:column headerText="Operation">
+			<p:commandLink value="Ajouter au panier" action="#{cliMB.ajouterProduit}" update="Tab">
+			<f:setPropertyActionListener value="#{pro.idProduit}" target="#{cliMB.produit.idProduit}"/>
+			</p:commandLink>
+
+		</p:column>
+		</p:dataTable>
+	</h:form>
+	
+	
+	
+</h:body>
+</html>

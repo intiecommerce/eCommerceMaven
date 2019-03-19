@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<title></title>
+</h:head>
+<h:body>
+<ui:insert name="menuAdmin">
+	<ui:include src="/ressource/template/menuAdmin.xhtml"/>
+</ui:insert>
+	<h1 style="color: red; text-align: center">Formulaire pour chercher un produit</h1>
+	<h:outputText value ="Produit recherché"></h:outputText>
+	<h:form>
+
+		<h:panelGrid columns="2">
+		ID du produit: <h:inputText value="#{proMB.produit.idProduit}" />
+			<h:commandButton value="Rechercher le produit" action="#{proMB.rechercherProduit}" />
+		</h:panelGrid>
+
+	</h:form>
+	<p:dataTable var="pro" value="#{proMB.produit}">
+		<p:column headerText="ID du produit">
+			<h:outputText value="#{pro.idProduit}" />
+		</p:column>
+
+		<p:column headerText="Designation du produit">
+			<h:outputText value="#{pro.designation}" />
+		</p:column>
+
+		<p:column headerText="Description de la categorie">
+			<h:outputText value="#{pro.description}" />
+		</p:column>
+		
+		<p:column headerText="Prix du produit">
+			<h:outputText value="#{pro.prix}" />
+		</p:column>
+		
+		<p:column headerText="Quantité du produit">
+			<h:outputText value="#{pro.quantite}" />
+		</p:column>
+	
+
+	</p:dataTable>
+	<h1 style="color:red; text-align:center"><h:messages/></h1>
+</h:body>
+</html>

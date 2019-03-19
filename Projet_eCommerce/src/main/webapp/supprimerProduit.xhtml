@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<title></title>
+</h:head>
+<h:body>
+<ui:insert name="menuAdmin">
+	<ui:include src="/ressource/template/menuAdmin.xhtml"/>
+</ui:insert>
+	<h1 style="color: red; text-align: center">Formulaire pour supprimer un produit</h1>
+	<h:form>
+
+		<h:panelGrid columns="2">
+		ID du produit: <h:inputText value="#{proMB.produit.idProduit}" />
+			<h:commandButton value="Supprimer le produit" action="#{proMB.supprProduit}" />
+		</h:panelGrid>
+
+	</h:form>
+	<h1 style="color:red; text-align:center"><h:messages/></h1>
+</h:body>
+</html>

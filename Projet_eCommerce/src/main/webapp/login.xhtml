@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<title>Page de connexion</title>
+</h:head>
+<h:body>
+
+
+
+
+		<h:form>
+Login:  <h:inputText value="#{admMB.admin.mail}" />
+			<br />
+Mot de passe : <h:inputSecret value="#{admMB.admin.mdp}" />
+			<br />
+
+			<h:commandButton value="Se connecter en admin" action="#{admMB.seConnecter}" />
+			
+		</h:form>
+
+		<h:form>
+Login:  <h:inputText value="#{cliMB.client.email}" />
+			<br />
+
+			<h:commandButton value="Se connecter en client" action="#{cliMB.seConnecter}" />
+			<h:commandButton value="Se creer un compte client" action="creationClient" />
+			
+		</h:form>
+
+		<h1 style="color: red; text-align: center">
+			<h:messages />
+		</h1>
+</h:body>
+</html>

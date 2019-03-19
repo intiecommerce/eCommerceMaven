@@ -63,7 +63,7 @@
 	<bean id="transactionManagerBean" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 	
 		<!-- injection de la sessionFactory via les modificateurs -->
-		<property name="sessionFactory" ref="sessionFactoryBean"></property>
+		<property name="sessionFactory" ref="sessionFactoryBean"/>
 		
 	</bean>
 	
