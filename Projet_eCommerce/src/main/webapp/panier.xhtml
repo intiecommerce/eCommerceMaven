@@ -3,11 +3,52 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 <h:head>
-<title></title>
+	<title></title>
 </h:head>
 <h:body>
 
+
+	<h:form>
+		<h1 style="color: red; text-align: center">Liste des produits</h1>
+		<c:forEach var="com" items="#{cliMB.listeCommandes">
+			<p:dataTable var="lig" value="#{com.commande.listeLigneCommandes.}" id="Tab">
+				<p:column headerText="ID du produit">
+					<h:outputText value="#{lig.produit.idProduit}" />
+				</p:column>
+
+				<p:column headerText="Designation du produit">
+					<h:outputText value="#{lig.produit.designation}" />
+				</p:column>
+
+				<p:column headerText="Description">
+					<h:outputText value="#{lig.produit.description}" />
+				</p:column>
+
+				<p:column headerText="Prix">
+					<h:outputText value="#{lig.produit.prix}" />
+				</p:column>
+
+				<p:column headerText="Quantité">
+					<h:outputText value="#{lig.produit.quantite}" />
+				</p:column>
+
+				<p:column headerText="Photo du produit">
+					<h:graphicImage value="#{lig.produit.image}" />
+				</p:column>
+
+				<p:column headerText="Operation">
+					<p:commandLink value="Supprimer du panier"
+						action="#{cliMB.supprimerProduitPanier}" update="Tab">
+						<f:setPropertyActionListener value="#{lig.produit.idProduit}"
+							target="#{cliMB.produit.idProduit}" />
+					</p:commandLink>
+
+				</p:column>
+			</p:dataTable>
+		</c:forEach>
+	</h:form>
 </h:body>
 </html>

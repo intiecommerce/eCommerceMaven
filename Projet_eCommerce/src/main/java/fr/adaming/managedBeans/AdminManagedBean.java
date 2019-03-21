@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import fr.adaming.model.Admin;
 import fr.adaming.model.Categorie;
@@ -90,6 +91,13 @@ public class AdminManagedBean implements Serializable{
 					new FacesMessage("Identifiant et/ou mot de passe incorrect"));
 			return "login";
 		}
+	}
+	
+	public String decoAdmin(){
+		
+		HttpSession session=(HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		session.invalidate();
+		return "login";
 	}
 
 }

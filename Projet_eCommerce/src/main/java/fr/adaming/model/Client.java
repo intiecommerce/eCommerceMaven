@@ -5,11 +5,9 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -35,6 +33,7 @@ public class Client {
 	public Client() {
 		super();
 	}
+	
 	public Client(String nomClient, String adresse, String email, String tel) {
 		super();
 		this.nomClient = nomClient;
@@ -42,6 +41,7 @@ public class Client {
 		this.email = email;
 		this.tel = tel;
 	}
+	
 	public Client(int idClient, String nomClient, String adresse, String email, String tel) {
 		super();
 		this.idClient = idClient;
@@ -82,6 +82,7 @@ public class Client {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
+	
 	@Override
 	public String toString() {
 		return "Client [idClient=" + idClient + ", nomClient=" + nomClient + ", adresse=" + adresse + ", email=" + email

@@ -2,12 +2,12 @@ package fr.adaming.dao;
 
 import java.util.List;
 
+import org.apache.commons.codec.binary.Base64;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.Base64Utils;
 
 import fr.adaming.model.Categorie;
 import fr.adaming.model.Produit;
@@ -37,9 +37,8 @@ public class ProduitDaoImpl implements IProduitDao{
 		
 		List<Produit> listePro = query.list();
 		
-		for(Produit p:listePro){
-			//p.setImage("data:image/png;base64,"+Base64.encodeBase64String(p.getPhoto())); ancienne version
-			p.setImage("data:image/png;base64,"+Base64Utils.encodeToString(p.getPhoto()));
+		for (Produit c : listePro) {
+			c.setImage("data:image/png;base64," + Base64.encodeBase64String(c.getPhoto()));
 		}
 		return listePro;
 	}

@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IClientDao;
 import fr.adaming.model.Client;
+import fr.adaming.model.Commande;
+import fr.adaming.model.LigneCommande;
 
 @Service("cliService")
 @Transactional
@@ -31,6 +33,20 @@ public class ClientServiceImpl implements IClientService{
 	public Client isExist(Client cIn) {
 		
 		return cliDao.isExist(cIn);
+	}
+
+
+	@Override
+	public Commande ajoutCommande(Commande cIn) {
+		
+		return cliDao.ajoutCommande(cIn);
+	}
+
+
+	@Override
+	public LigneCommande ajoutLigneCommande(LigneCommande lc) {
+	
+		return cliDao.ajoutLigneCommande(lc);
 	}
 
 }

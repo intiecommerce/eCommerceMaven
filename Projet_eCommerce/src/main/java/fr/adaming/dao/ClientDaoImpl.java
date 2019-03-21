@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.Admin;
 import fr.adaming.model.Client;
+import fr.adaming.model.Commande;
+import fr.adaming.model.LigneCommande;
+import fr.adaming.model.Produit;
 
 @Repository
 public class ClientDaoImpl implements IClientDao{
@@ -52,6 +55,22 @@ public class ClientDaoImpl implements IClientDao{
 				
 		s.save(cIn);
 		return cIn;
+	}
+
+	@Override
+	public Commande ajoutCommande(Commande cIn) {
+		Session s =sf.getCurrentSession();
+		
+		s.save(cIn);
+		return cIn;
+	}
+
+	@Override
+	public LigneCommande ajoutLigneCommande(LigneCommande lc) {
+	Session s =sf.getCurrentSession();
+		
+		s.save(lc);
+		return lc;
 	}
 	
 

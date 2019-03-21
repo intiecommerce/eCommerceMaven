@@ -1,17 +1,17 @@
 package fr.adaming.dao;
 
+
 import java.util.List;
 
+import org.apache.commons.codec.binary.Base64;
 //import org.apache.commons.codec.binary.Base64;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.Base64Utils;
 
 import fr.adaming.model.Categorie;
-import fr.adaming.model.Produit;
 
 @Repository
 public class CategorieDaoImpl implements ICategorieDao {
@@ -38,10 +38,8 @@ public class CategorieDaoImpl implements ICategorieDao {
 		
 		List<Categorie> listeCat = query.list();
 		
-		for(Categorie c:listeCat){
-
-			//c.setImg("data:image/png;base64,"+Base64.encodeBase64String(c.getPhoto()));   version précédente
-			c.setImg("data:image/png;base64,"+Base64Utils.encodeToString(c.getPhoto()));
+		for (Categorie c : listeCat) {
+			c.setImg("data:image/png;base64," + Base64.encodeBase64String(c.getPhoto()));
 		}
 		return listeCat;
 	}

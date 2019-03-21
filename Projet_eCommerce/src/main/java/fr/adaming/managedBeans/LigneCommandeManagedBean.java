@@ -21,4 +21,9 @@ public class LigneCommandeManagedBean {
 		this.proService = proService;
 	}
 	
+	public String ajouterProduitLigne(){
+		return "aa";
+		
+	}
+	
 }

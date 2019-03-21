@@ -8,7 +8,15 @@
 <title></title>
 </h:head>
 <h:body>
+<ui:composition>
 
+	<h:form>
+		<p:breadCrumb>
+			<p:menuitem value="Deconnexion" action="#{cliMB.decoClient}" />
+			
+		</p:breadCrumb>
+	</h:form>
+	</ui:composition>
 <h:form>
 		Catégorie: <p:selectOneMenu value="#{proMB.produit.categorie.idCategorie}">
 	
@@ -47,7 +55,7 @@
 			</p:column>
 			
 		<p:column headerText="Operation">
-			<p:commandLink value="Ajouter au panier" action="#{cliMB.ajouterProduit}" update="Tab">
+			<p:commandLink value="Ajouter au panier" action="#{cliMB.ajouterProduitLigne}" update="Tab">
 			<f:setPropertyActionListener value="#{pro.idProduit}" target="#{cliMB.produit.idProduit}"/>
 			</p:commandLink>
 
