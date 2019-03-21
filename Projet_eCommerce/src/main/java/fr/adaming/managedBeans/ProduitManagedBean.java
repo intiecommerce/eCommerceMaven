@@ -86,6 +86,13 @@ public class ProduitManagedBean implements Serializable{
 		this.tableVisible = tableVisible;
 	}
 
+	
+	// setter injection
+	public void setProService(IProduitService proService){
+		
+		this.proService = proService;
+	}
+	
 	// methode
 	public String ajouterProduit(){
 		

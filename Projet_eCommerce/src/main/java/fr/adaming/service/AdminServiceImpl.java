@@ -11,7 +11,7 @@ import fr.adaming.model.Admin;
 @Transactional
 public class AdminServiceImpl implements IAdminService{
 
-	// associatio UML en JAVA
+	// association UML en JAVA
 	@Autowired
 	private IAdminDao admDao;
 	

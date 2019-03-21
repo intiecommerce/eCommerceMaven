@@ -40,7 +40,7 @@ public class Produit {
 	@ManyToOne
 	@JoinColumn(name="cat_id",referencedColumnName="id_cat")
 	Categorie categorie;
-	@OneToMany(mappedBy="commande",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="commande",cascade=CascadeType.ALL)
 	List<LigneCommande> listeLigneCommandes;
 	
 	//constructeur

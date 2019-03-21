@@ -17,7 +17,7 @@ public class ClientDaoImpl implements IClientDao{
 	
 	
 	// setter pour l'injection de dépendence
-	public void setSessionFactory(SessionFactory sf){
+	public void setSf(SessionFactory sf){
 		this.sf = sf;
 	}
 	

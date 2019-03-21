@@ -49,6 +49,8 @@ public class AdminManagedBean implements Serializable{
 		this.admin = admin;
 	}
 	
+	
+	// setters injection
 	public void setAdmService(IAdminService admService){
 		
 		this.admService = admService;

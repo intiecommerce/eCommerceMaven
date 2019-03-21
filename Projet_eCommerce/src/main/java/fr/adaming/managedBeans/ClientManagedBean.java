@@ -16,30 +16,29 @@ import fr.adaming.service.ICategorieService;
 import fr.adaming.service.IClientService;
 import fr.adaming.service.IProduitService;
 
-@ManagedBean(name="cliMB")
+@ManagedBean(name = "cliMB")
 @RequestScoped
-public class ClientManagedBean implements Serializable{
+public class ClientManagedBean implements Serializable {
 
-	//declaration des attributs
+	// declaration des attributs
 	private Client client;
-	
+
 	// association UML en JAVA
-	@ManagedProperty(value="#{cliService}")
+	@ManagedProperty(value = "#{cliService}")
 	private IClientService cliService;
-	
-	@ManagedProperty(value="#{catService}")
+
+	@ManagedProperty(value = "#{catService}")
 	private ICategorieService catService;
-	
-	@ManagedProperty(value="#{proService}")
+
+	@ManagedProperty(value = "#{proService}")
 	private IProduitService proService;
 
-
-	//constructeur
+	// constructeur
 	public ClientManagedBean() {
-		this.client =new Client();
+		this.client = new Client();
 	}
 
-	//getter et setter
+	// getter et setter
 	public Client getClient() {
 		return client;
 	}
@@ -47,47 +46,60 @@ public class ClientManagedBean implements Serializable{
 	public void setClient(Client client) {
 		this.client = client;
 	}
+
 	
-	//methode
-	
+	// setter injection
+	public void setCatService(ICategorieService catService) {
+
+		this.catService = catService;
+	}
+
+	public void setCliService(IClientService cliService) {
+
+		this.cliService = cliService;
+	}
+
+	public void setProService(IProduitService proService) {
+
+		this.proService = proService;
+	}
+
+	// methode
+
 	public String seConnecter() {
-		
+
 		// chercher le client
 		Client cliOut = cliService.isExist(client);
 
 		if (cliOut != null) {
 
 			// recuperer les listes de produits et categories
-			List<Categorie> catListe=catService.getAllCategorie();
-			List<Produit> proListe=proService.getAllProduit();
-			
-			//mettre les listes dans la session
+			List<Categorie> catListe = catService.getAllCategorie();
+			List<Produit> proListe = proService.getAllProduit();
+
+			// mettre les listes dans la session
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("catSession", catListe);
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("proSession", proListe);
-			
+
 			return "accueilClient";
 		} else {
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage("Email incorrect"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Email incorrect"));
 			return "login";
 		}
 	}
-	public String ajouterClient(){
-		//appel de la methode service
-		Client cliAjout=cliService.ajouterClient(client);
-		
-		if(cliAjout.getIdClient()!=0){
-	
-	
-			
+
+	public String ajouterClient() {
+		// appel de la methode service
+		Client cliAjout = cliService.ajouterClient(client);
+
+		if (cliAjout.getIdClient() != 0) {
+
 			return "accueilClient";
-			
-		}else {
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage("L'ajout a échoué"));
+
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("L'ajout a échoué"));
 			return "creationClient";
 		}
 	}
-	
-	
+
 }

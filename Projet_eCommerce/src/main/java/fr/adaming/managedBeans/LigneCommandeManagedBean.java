@@ -14,4 +14,11 @@ public class LigneCommandeManagedBean {
 	@ManagedProperty(value="#{proService}")
 	private IProduitService proService;
 	
+	
+	// setter injection
+	public void setProService(IProduitService proService){
+		
+		this.proService = proService;
+	}
+	
 }

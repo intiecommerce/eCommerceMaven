@@ -33,7 +33,7 @@ public class Categorie {
 	private String description;
 	
 	//transformation
-	@OneToMany(mappedBy="categorie",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="categorie",cascade=CascadeType.ALL)
 	List<Produit> listeProduits;
 	
 	//constructeur

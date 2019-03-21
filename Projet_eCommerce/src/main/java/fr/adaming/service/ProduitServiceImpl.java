@@ -14,7 +14,7 @@ import fr.adaming.model.Produit;
 @Transactional
 public class ProduitServiceImpl implements IProduitService {
 
-	// associatio UML en JAVA
+	// association UML en JAVA
 	@Autowired
 	private IProduitDao proDao;
 	

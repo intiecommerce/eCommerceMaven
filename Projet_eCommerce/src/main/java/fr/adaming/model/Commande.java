@@ -30,7 +30,7 @@ public class Commande {
 	@ManyToOne
 	@JoinColumn(name="cli_id",referencedColumnName="id_cli")
 	Client client;
-	@OneToMany(mappedBy="commande",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="commande")
 	List<LigneCommande> listeLigneCommandes;
 	
 	//constructeur

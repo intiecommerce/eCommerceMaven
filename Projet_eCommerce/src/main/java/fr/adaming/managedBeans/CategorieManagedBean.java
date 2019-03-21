@@ -63,6 +63,13 @@ public class CategorieManagedBean implements Serializable {
 		this.image = image;
 	}
 
+	// setter injection
+	public void setCatService(ICategorieService catService) {
+
+		this.catService = catService;
+	}
+	
+	
 	// methode
 	public String ajouterCategorie(){
 		

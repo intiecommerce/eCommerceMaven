@@ -15,7 +15,7 @@ import fr.adaming.model.Categorie;
 @Transactional
 public class CategorieServiceImpl implements ICategorieService {
 
-	// associatio UML en JAVA
+	// association UML en JAVA
 	@Autowired
 	private ICategorieDao catDao;
 	

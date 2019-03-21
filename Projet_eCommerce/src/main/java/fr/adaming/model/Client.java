@@ -28,7 +28,7 @@ public class Client {
 	private String tel;
 	
 	//transoformation
-	@OneToMany(mappedBy="client",cascade=CascadeType.REMOVE,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="client",cascade=CascadeType.REMOVE)
 	List<Commande> listeCommandes;
 	
 	//constructeur

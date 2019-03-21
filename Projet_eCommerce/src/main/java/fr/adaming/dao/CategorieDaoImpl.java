@@ -21,7 +21,7 @@ public class CategorieDaoImpl implements ICategorieDao {
 	
 	
 	// setter pour l'injection de dépendence
-	public void setSessionFactory(SessionFactory sf){
+	public void setSf(SessionFactory sf){
 		this.sf = sf;
 	}
 
